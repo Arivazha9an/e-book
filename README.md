@@ -1,42 +1,112 @@
-# Digital Ebook Library Application
+<div align="center">
 
-This repository contains the complete implementation of the Digital Ebook Library assignment, featuring a Ruby on Rails backend API and a Flutter cross-platform frontend.
+# 📚 Digital Ebook Library
 
-The application allows users to upload, manage, search, read, download, and delete ebooks. It features a custom "wooden bookshelf" UI to provide a premium, realistic library experience, alongside offline support, reading progress tracking, and robust error handling.
+A full-stack digital ebook library — **Ruby on Rails API** backend + **Flutter** cross-platform frontend — featuring a custom wooden bookshelf UI, offline-aware reading progress sync, and clean, testable architecture.
 
-## Project Overview
+[![Ruby](https://img.shields.io/badge/Ruby-3.2-CC342D?logo=ruby&logoColor=white)](https://www.ruby-lang.org/)
+[![Rails](https://img.shields.io/badge/Rails-7.1-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+[![Flutter](https://img.shields.io/badge/Flutter-3.19+-02569B?logo=flutter&logoColor=white)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-3.3+-0175C2?logo=dart&logoColor=white)](https://dart.dev/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
 
-- **Backend**: Ruby on Rails (API-only) providing robust endpoints, pagination, file storage via Active Storage, and reading progress tracking.
-- **Frontend**: Flutter utilizing Clean Architecture and BLoC state management for a highly responsive, easily testable user interface.
-- **Key Features**: 
-  - Realistic wooden bookshelf UI (bonus requirement)
-  - PDF reading with persistent "last read" position tracking
-  - Debounced search functionality (by title, author)
-  - Seamless file upload and download capabilities
-  - Graceful error handling (offline states, server errors, empty states)
-
-## Tech Stack
-
-### Backend
-- **Ruby 3.2 / Rails 7.1** (API mode)
-- **SQLite** (Development/Test)
-- **Active Storage** (Local disk) for ebook files and covers
-- **Kaminari** (Pagination)
-- **RSpec & FactoryBot** (Testing)
-
-### Frontend
-- **Flutter 3.19+ / Dart 3.3+**
-- **flutter_bloc** (State Management)
-- **dio** (Networking)
-- **get_it** (Dependency Injection)
-- **syncfusion_flutter_pdfviewer** (PDF Rendering)
-- **file_picker & permission_handler** (File access)
+</div>
 
 ---
 
-## Flutter Project Structure (Clean Architecture)
+## 🎬 Demo
 
-The Flutter frontend strictly adheres to Clean Architecture and feature-driven folders to ensure high testability and maintainability.
+<!--
+  Add a short screen recording (10–30s) showing: opening the shelf → searching →
+  opening a book → resuming reading position → deleting a book.
+
+  GitHub renders uploaded .mp4/.mov/.gif files natively when embedded like this.
+  Easiest workflow:
+    1. Open an Issue on this repo (or edit this README in the GitHub web UI).
+    2. Drag and drop your video/gif into the text box — GitHub uploads it and
+       gives you a URL like https://github.com/user/repo/assets/12345/xxxx.mp4
+    3. Paste that generated line here, replacing this comment block.
+
+  Alternatively, host the file in a `docs/demo/` folder in this repo and reference it:
+-->
+
+[https://github.com/assets/WhatsApp Video 2026-07-03 at 6.37.01 PM.mp4](https://github.com/Arivazha9an/e-book/blob/main/assets/WhatsApp%20Video%202026-07-03%20at%206.37.01%20PM.mp4)
+
+<!-- Or, if using a GIF instead of a video: -->
+<!-- ![App demo](docs/demo/app-demo.gif) -->
+
+---
+
+## 📸 Screenshots
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-07-03 at 7.04.42 PM-3.jpeg" width="240" alt="Wooden bookshelf library view" /><br/>
+      <sub><b>Library Shelf</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-07-03 at 7.04.43 PM-2.jpeg" width="240" alt="Search screen" /><br/>
+      <sub><b>Search</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-07-03 at 7.04.42 PM-3.jpeg" width="240" alt="PDF reader view" /><br/>
+      <sub><b>Reader</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-07-03 at 7.04.42 PM.jpeg" width="240" alt="Upload screen" /><br/>
+      <sub><b>Upload</b></sub>
+    </td>
+    <td align="center">
+      <img src="assets/WhatsApp Image 2026-07-03 at 7.04.43 PM.jpeg" width="240" alt="Book DetailScreen" /><br/>
+      <sub><b>Upload</b></sub>
+    </td>
+  </tr>
+</table>
+</div>
+
+> **To add your own screenshots:** create a `docs/screenshots/` folder in the repo root, drop your PNG/JPG files in with the names above (or update the paths), commit, and push. GitHub will render them automatically once the files exist at those paths.
+
+---
+
+## ✨ Key Features
+
+- 🪵 **Realistic wooden bookshelf UI** — 3D-tilted book tiles with custom shadows (bonus requirement)
+- 📖 **PDF reading with persistent progress** — resumes at the exact last-read position
+- 🔍 **Debounced search** — by title and author, single API call per pause in typing
+- ⬆️⬇️ **Seamless upload & download** — with client-side file-size validation
+- 🛡️ **Graceful error handling** — offline states, timeouts, validation errors, empty states
+- ♾️ **Infinite scroll pagination** — next page pre-fetches before the user reaches the bottom
+
+---
+
+## 🧱 Tech Stack
+
+### Backend
+| Component | Technology |
+|---|---|
+| Language / Framework | Ruby 3.2 / Rails 7.1 (API mode) |
+| Database | SQLite (dev/test) |
+| File Storage | Active Storage (local disk) |
+| Pagination | Kaminari |
+| Testing | RSpec & FactoryBot |
+
+### Frontend
+| Component | Technology |
+|---|---|
+| Framework | Flutter 3.19+ / Dart 3.3+ |
+| State Management | flutter_bloc |
+| Networking | dio |
+| Dependency Injection | get_it |
+| PDF Rendering | syncfusion_flutter_pdfviewer |
+| File Access | file_picker & permission_handler |
+
+---
+
+## 🏗️ Architecture
+
+The Flutter frontend follows **Clean Architecture** with a feature-driven folder structure to maximize testability and maintainability.
 
 ```text
 lib/
@@ -50,7 +120,7 @@ lib/
     theme/app_theme.dart
     widgets/                   # ErrorView, EmptyView, ShelfLoadingSkeleton, ConnectivityBanner
   features/ebooks/
-    domain/                    # Entities, repository interface, use cases — pure Dart, no Flutter/Dio imports
+    domain/                    # Entities, repository interface, use cases — pure Dart
     data/                      # Models (JSON), remote data source, repository impl, download service
     presentation/
       bloc/                    # library/, search/, upload/, reader/, detail/
@@ -58,20 +128,18 @@ lib/
       widgets/                 # EbookShelfGrid, EbookCoverTile
 ```
 
-**Dependency Direction:** `presentation` depends on `domain`; `data` implements `domain`'s repository interface. The `domain` layer never imports Flutter, Dio, or anything from `data`/`presentation` — it's plain Dart. This makes the BLoCs and use cases extremely straightforward to unit test.
+**Dependency direction:** `presentation → domain ← data`. The `domain` layer is pure Dart — no Flutter, no Dio, no imports from `data` or `presentation` — which keeps BLoCs and use cases trivially unit-testable.
 
 ---
 
-## Setup Instructions
+## 🚀 Getting Started
 
 ### Prerequisites
 - Ruby 3.2+
 - Flutter 3.19+
-- Xcode / Android Studio (for running the Flutter app on emulators/devices)
+- Xcode / Android Studio (for running on emulators or devices)
 
-### 1. How to run Backend (Rails)
-
-Open a terminal in the backend directory:
+### 1. Run the Backend (Rails)
 
 ```bash
 # Install dependencies
@@ -86,11 +154,10 @@ bin/rails db:seed
 # Start the Rails server
 bin/rails server
 ```
-The API will be available at `http://localhost:3000/api/v1`.
 
-### 2. How to run Flutter App
+The API is now available at `http://localhost:3000/api/v1`.
 
-Open a new terminal in the frontend directory:
+### 2. Run the Frontend (Flutter)
 
 ```bash
 # Install dependencies
@@ -99,166 +166,143 @@ flutter pub get
 # Run the app
 flutter run
 ```
-*Note: If running on an Android emulator, the app defaults to connecting to `10.0.2.2:3000` to reach the local Rails server. For iOS simulators, it uses `localhost:3000`. You can override this using `--dart-define=API_BASE_URL=http://YOUR_IP:3000` if testing on a physical device.*
+
+> **Note:** On an Android emulator, the app defaults to `10.0.2.2:3000` to reach the local Rails server. On an iOS simulator, it uses `localhost:3000`. For a physical device, override with:
+> ```bash
+> flutter run --dart-define=API_BASE_URL=http://YOUR_IP:3000
+> ```
 
 ---
 
-## Testing
+## 🔌 API Reference
 
-### Backend Tests
-Run the RSpec test suite to verify models, validations, and API endpoints:
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| `GET` | `/api/v1/ebooks` | Paginated list |
+| `POST` | `/api/v1/ebooks` | Upload a new ebook |
+| `GET` | `/api/v1/ebooks/:id` | Ebook details |
+| `GET` | `/api/v1/ebooks/search?q=...` | Paginated search |
+| `GET` | `/api/v1/ebooks/:id/download` | Download the file |
+| `DELETE` | `/api/v1/ebooks/:id` | Delete an ebook |
+| `PATCH` | `/api/v1/ebooks/:id/progress` | Update reading progress |
+
+**Data model (`ebooks` table)** — key columns: `title`, `author`, `description`, `file_type`, `file_size`, `original_filename`, `current_page`, `total_pages`, `last_position`, `last_opened_at`.
+
+---
+
+## 🧪 Testing
+
+### Backend
 ```bash
 bundle exec rspec
 ```
+Covers model validations/edge cases, full request specs for every endpoint (including pagination), and reading-progress persistence.
 
-### Frontend Tests
-Run the Flutter test suite to verify BLoC logic, UI rendering, and widget interactions:
+### Frontend
 ```bash
 flutter test
 ```
+Covers `bloc_test` state transitions for `LibraryBloc`, `SearchBloc`, and `UploadCubit`; debounce verification (rapid keystrokes → single API call); and widget tests for `EbookShelfGrid`'s infinite-scroll trigger and tap handling.
 
-### Manual Testing Summary
-The following core flows have been manually verified:
-- [x] **Upload**: Selecting a PDF/EPUB file correctly uploads, saves metadata, and updates the shelf. (Fails gracefully if permission is denied).
-- [x] **Library UI**: Books are displayed on a wooden shelf. Empty states are handled gracefully.
-- [x] **Search**: Typing in the search bar debounces the query and accurately filters books by title/author.
-- [x] **Reading**: Tapping a book opens the PDF viewer. Scrolling pages automatically syncs the reading progress to the backend. Closing and reopening the book resumes from the exact last position.
-- [x] **Download**: Triggering a download saves the file locally and opens it natively.
-- [x] **Deletion**: Long-pressing a book prompts a confirmation dialog, successfully deletes the record from the backend, and visually removes it from the shelf.
-
----
-
-## API Overview
-
-| Method | Path                              | Purpose                        |
-|--------|-------------------------------------|---------------------------------|
-| GET    | `/api/v1/ebooks`                    | Paginated list                  |
-| POST   | `/api/v1/ebooks`                    | Upload a new ebook              |
-| GET    | `/api/v1/ebooks/:id`                | Ebook details                   |
-| GET    | `/api/v1/ebooks/search?q=...`       | Paginated search                |
-| GET    | `/api/v1/ebooks/:id/download`       | Download the file               |
-| DELETE | `/api/v1/ebooks/:id`                | Delete an ebook                 |
-| PATCH  | `/api/v1/ebooks/:id/progress`       | Update reading progress         |
+### Manual QA Checklist
+- [x] Upload valid and invalid PDFs
+- [x] Decline and accept storage permissions
+- [x] Infinite scroll through a populated library
+- [x] Search filtering by title and author
+- [x] Open a book, scroll halfway, exit, reopen — resumes at the exact same position
+- [x] Long-press to delete a book — removed from both UI and API
 
 ---
 
-## Technical & Architectural Notes
+## 🎨 Product & UX Decisions
 
-### 1. Error Handling Strategy
-Every possible failure is modeled as a specific `Failure` subtype rather than a generic exception:
-- **`NoInternetFailure`**: Device is offline (checked *before* the request fires; live `ConnectivityBanner`).
-- **`TimeoutFailure`**: Handled seamlessly; read-only requests auto-retry once on a timeout before surfacing an error to the user.
-- **`ValidationFailure`**: Surfaces 422 errors directly in the UI.
-- All non-fatal errors (e.g., a delete failing while the list is still showing) surface as a `SnackBar` so the user doesn't lose their place.
+<details>
+<summary><b>Empty library state</b></summary>
+<br>
+Instead of a blank screen: a friendly empty state with a book icon and the message "Your shelf is empty. Tap 'Add book' to upload your first ebook."
+</details>
 
-### 2. Pagination & Infinite Scroll
-`EbookShelfGrid` drives pagination purely from scroll position: a `ScrollController` listener fires an `onLoadMore` event once the user scrolls within 600px of the bottom. This ensures the next page is already in flight before they reach the end—creating a seamless, pause-free scroll experience.
+<details>
+<summary><b>Upload failure handling</b></summary>
+<br>
+<code>UploadCubit</code> maps failures to the UI — validation errors (e.g. missing title) show inline on the form; network errors surface a <code>SnackBar</code> without wiping the user's entered data, so they can retry easily.
+</details>
 
-### 3. Reading Progress & State Sync
-- **Backend**: Each ebook stores `current_page`, `total_pages`, `last_position`, and `last_opened_at`.
-- **Frontend**: `ReaderCubit` debounces page-change events (3s) before calling `PATCH .../progress`. This ensures quick page scrolling doesn't spam the API. A final un-debounced save is fired when the reader is closed.
+<details>
+<summary><b>Oversized files</b></summary>
+<br>
+Checked client-side before the upload starts — files over 50MB immediately raise a <code>FileTooLargeFailure</code>, avoiding wasted bandwidth and wait time. The backend enforces the same limit via Active Storage validations as a second line of defense.
+</details>
 
-### 4. Active Storage Approach (Backend)
-Files (the ebook and an optional cover image) are handled via **Rails Active Storage** with the `local` (disk) service. This keeps the assignment runnable without AWS/S3 dependencies out-of-the-box, but seamlessly supports cloud transition by simply updating `config/storage.yml`.
+<details>
+<summary><b>No search results</b></summary>
+<br>
+A dedicated empty state reads "No books match '[query]'", confirming the search completed rather than leaving the user guessing.
+</details>
 
-### 5. Data Model (`ebooks` table)
-Key columns include: `title`, `author`, `description`, `file_type`, `file_size`, `original_filename`, `current_page`, `total_pages`, `last_position`, and `last_opened_at`.
+<details>
+<summary><b>Loading states</b></summary>
+<br>
+Initial load shows a custom <code>ShelfLoadingSkeleton</code> shimmer matching the bookshelf aesthetic, rather than a generic spinner. Infinite-scroll pagination shows a small non-blocking spinner at the bottom of the list.
+</details>
 
----
+<details>
+<summary><b>Error display strategy</b></summary>
+<br>
 
-## Known Limitations
+- **Fatal** (e.g. initial load fails) → full-screen <code>ErrorView</code> with icon, friendly message, and a Retry button.
+- **Non-fatal** (e.g. a delete fails on a spotty connection) → <code>SnackBar</code>, preserving the user's place on the shelf.
+- **Offline** → a persistent <code>ConnectivityBanner</code> appears in real time; read-only requests auto-retry once on timeout.
+</details>
 
-1. **Single-User Environment**: Authentication (e.g., Devise/JWT) is currently omitted to keep the focus on core functionality. Progress and libraries are globally shared.
-2. **EPUB Support**: While the backend fully accepts and stores EPUBs, the frontend reading experience currently leverages `syncfusion_flutter_pdfviewer`, which strictly renders PDFs. EPUB reading would require integrating a secondary rendering package.
-3. **Cover Generation**: Ebook covers are provided manually on upload or fall back to a dynamic, deterministic color-block placeholder. Automatic PDF-to-image cover extraction is not yet implemented on the backend.
-
----
-
-## AI Tools Used and How They Were Used
-
-Throughout this assignment, I utilized an **AI Coding Assistant (Antigravity/Gemini)** as a collaborative development partner to accelerate boilerplate generation, refine UI/UX, and troubleshoot complex test environments. 
-
-**How the AI was used:**
-- **Architecture & Scaffolding**: I prompted the AI to help scaffold the Flutter Clean Architecture layers (Domain, Data, Presentation) and generate standard boilerplate for BLoCs and Cubits, which saved significant manual typing.
-- **UI Implementation**: I used the AI to help execute the "wooden bookshelf" bonus requirement. I described the desired aesthetic, and the AI helped generate the complex Flutter `BoxShadow` and `Transform` matrices required to give the books a realistic, 3D tilted appearance.
-- **Debugging & Testing**: When writing Flutter widget tests, I encountered an issue where `await tester.pump()` was insufficient for allowing asynchronous animations (`BookLiftAnimation`) to complete, causing test failures. The AI helped identify the lingering timer (from `Future.delayed`) and suggested the correct combination of `pumpAndSettle()` and `pump(Duration)` to cleanly flush the event loop.
-- **Permissions**: I directed the AI to add the `permission_handler` and update the Android Manifest and iOS Info.plist to ensure file picking worked securely across modern OS versions.
-
-**Manual Review & Ownership:**
-- I did not blindly copy code. I dictated the overarching architecture (Clean Architecture + BLoC), defined the API contract, and explicitly decided *where* and *how* the AI should assist.
-- I manually reviewed all generated state management logic to ensure it handled loading, empty, and failure states gracefully, adjusting the AI's output when its error handling was too generic.
-- I took ownership of the product thinking, ensuring that edge cases (like offline states or denied permissions) resulted in friendly, actionable SnackBars rather than raw exceptions.
-
-
-# Assignment Submission & Product Decisions
-
-This document outlines how the Digital Ebook Library application directly addresses the expectations, edge cases, and product thinking criteria outlined in the assignment brief.
+<details>
+<summary><b>Delete confirmation</b></summary>
+<br>
+Long-press on a book triggers a native <code>AlertDialog</code> — "Delete this ebook?" with a destructive-colored Delete button — before any backend request fires.
+</details>
 
 ---
 
-## 5. AI Tool Usage Expectation
+## ⚠️ Error Handling Strategy
 
-**Which AI tools you used:**
-I utilized Antigravity/Gemini as a collaborative AI coding assistant.
+Every failure is modeled as a specific `Failure` subtype rather than a generic exception:
 
-**How you used them & which parts were AI-assisted:**
-- **Architecture & Scaffolding**: I prompted the AI to generate the boilerplate for the Flutter Clean Architecture (Domain, Data, Presentation layers) and the core Rails controllers.
-- **UI Execution**: I used the AI to help implement the math and rendering logic for the bonus "wooden bookshelf" UI, specifically generating the complex `BoxShadow` and `Transform` matrices required to give the ebook tiles a realistic 3D tilt.
-- **Permissions**: I guided the AI to implement `permission_handler` logic to intercept file picker requests and manage Android/iOS manifest permissions safely.
-
-**Manual Review, Debugging, & Corrections:**
-- I did not blindly accept code. I defined the API contract and the overarching BLoC architecture upfront.
-- **Testing Corrections**: During frontend widget testing, the AI initially wrote a test using `tester.pump()` which failed because of lingering `Future.delayed` timers in the `BookLiftAnimation`. I reviewed this and guided the AI to properly flush the event loop using `tester.pump(Duration)` and `pumpAndSettle()`.
-- **Error Handling Ownership**: The AI's initial error handling was often a generic `try/catch`. I manually enforced a strict layered strategy mapping raw exceptions to strongly-typed `Failure` classes (e.g., `TimeoutFailure`, `NoInternetFailure`) to ensure user-friendly UI responses.
+| Failure Type | Behavior |
+|---|---|
+| `NoInternetFailure` | Checked *before* the request fires; surfaced via a live `ConnectivityBanner` |
+| `TimeoutFailure` | Read-only requests auto-retry once before surfacing an error |
+| `ValidationFailure` | 422 errors surfaced directly in the relevant UI field |
+| Non-fatal errors | Shown as a `SnackBar` so the user never loses their place |
 
 ---
 
-## 6. Product Thinking & UX Decisions
+## 📌 Known Limitations
 
-**What happens when the library is empty?**
-Instead of a blank screen, the user is presented with a friendly empty state featuring a book icon and clear instructions: "Your shelf is empty. Tap 'Add book' to upload your first ebook."
-
-**What happens when upload fails?**
-The `UploadCubit` catches the failure and maps it to the UI. If it's a validation error (like a missing title), it displays inline on the form. If it's a network error, a `SnackBar` alerts the user without destroying their entered form data, allowing them to retry easily.
-
-**What happens when the ebook file is too large?**
-This is handled *client-side* first. The app checks if the file exceeds 50MB before attempting the upload. It instantly throws a `FileTooLargeFailure` and alerts the user, preventing wasted data bandwidth and long waiting times. The backend also enforces this via Active Storage validations.
-
-**What happens when search has no results?**
-A dedicated empty state appears stating "No books match '[query]'", ensuring the user knows their search completed successfully but yielded no matches.
-
-**What should the user see while data is loading?**
-For the initial load, the app displays a custom `ShelfLoadingSkeleton` (a shimmer effect matching the bookshelf aesthetic) rather than a generic spinner, making the app feel native and responsive. For infinite scroll pagination, a non-blocking circular spinner appears at the bottom of the list.
-
-**How should errors be displayed?**
-- **Fatal errors** (e.g., initial load fails) take over the screen with a centralized `ErrorView` featuring an icon, friendly message, and a "Retry" button.
-- **Non-fatal errors** (e.g., an ebook deletion fails over a spotty connection) use a `SnackBar`. This ensures the user doesn't lose their place on the shelf.
-- **Offline status**: A persistent `ConnectivityBanner` appears in real-time when the internet drops, informing the user *before* they tap an action. Read-only requests automatically retry once on timeout.
-
-**How should delete confirmation work?**
-Users trigger deletion via a long-press on a book. Before any backend request fires, a native `AlertDialog` asks "Delete this ebook?" with a distinct, destructive-colored "Delete" button. This prevents accidental data loss.
-
-**How does the app remain simple and easy to use?**
-The interface avoids deep navigation trees. The primary view is the wooden bookshelf. A sticky bottom-anchored Floating Action Button serves as the single point of entry for uploads. The search bar is cleanly integrated into the SliverAppBar and hides when scrolling to maximize screen space for the books.
+1. **Single-user environment** — authentication (Devise/JWT) is intentionally omitted to keep focus on core functionality; the library and progress are globally shared.
+2. **EPUB rendering** — the backend fully accepts and stores EPUBs, but the reader currently uses `syncfusion_flutter_pdfviewer`, which renders PDFs only. EPUB reading would need a secondary rendering package.
+3. **Cover generation** — covers are provided manually on upload, or fall back to a deterministic color-block placeholder. Automatic PDF-to-image cover extraction isn't implemented yet.
 
 ---
 
-## 7. Testing Summary
+## 🤖 AI Tool Usage
 
-**Backend Testing (RSpec):**
-- Validations and edge cases on the `Ebook` model.
-- Full request specs for API endpoints (`GET /ebooks`, `POST /ebooks`, `DELETE`, etc.), including pagination parameters.
-- Reading progress state persistence.
+An AI coding assistant (Antigravity/Gemini) was used as a collaborative development partner throughout this project.
 
-**Frontend Testing (Flutter):**
-- `bloc_test` for state transitions in `LibraryBloc`, `SearchBloc`, and `UploadCubit`.
-- Debounce verification ensuring rapid keystrokes only trigger one search API call.
-- Widget tests for `EbookShelfGrid` validating that the infinite-scroll trigger (`onLoadMore`) fires correctly based on scroll pixel position, and that tapping a `RealisticBookTile` registers correctly.
+**How it was used:**
+- **Architecture & scaffolding** — generated boilerplate for the Flutter Clean Architecture layers (domain/data/presentation) and core Rails controllers.
+- **UI implementation** — helped derive the `BoxShadow` and `Transform` matrices behind the wooden bookshelf's realistic 3D tilt effect.
+- **Debugging & testing** — diagnosed a widget-test failure caused by a lingering `Future.delayed` timer in `BookLiftAnimation`, and suggested the correct `pumpAndSettle()` / `pump(Duration)` combination to flush the event loop.
+- **Permissions** — assisted wiring up `permission_handler` and the corresponding Android manifest / iOS `Info.plist` entries.
 
-**Manual Testing Checklist Completed:**
-- [x] Uploading valid and invalid PDFs.
-- [x] Declining and accepting storage permissions.
-- [x] Infinite scrolling down a populated library.
-- [x] Search filtering by title and author.
-- [x] Opening a book, scrolling halfway, exiting, and ensuring it reopens at the exact same position.
-- [x] Long-pressing to delete a book and verifying its removal from the UI and API.
+**Manual review & ownership:**
+- The overall architecture (Clean Architecture + BLoC), the API contract, and where/how AI assistance was applied were all decided manually — nothing was accepted without review.
+- All generated state-management logic was reviewed to ensure loading, empty, and failure states were handled correctly; overly generic AI error handling was replaced with the strict `Failure`-subtype strategy described above.
+- Product decisions — like turning offline states and denied permissions into friendly, actionable `SnackBar`s instead of raw exceptions — were driven manually.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+</div>
