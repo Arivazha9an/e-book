@@ -1,0 +1,33 @@
+source "https://rubygems.org"
+
+ruby "3.3.4"
+
+gem "rails", "~> 7.2"
+gem "sqlite3", "~> 1.4"
+gem "puma", ">= 5.0"
+gem "bootsnap", require: false
+
+# Active Storage image processing (used for cover image variants, optional)
+gem "image_processing", "~> 1.2"
+
+# CORS support so the Flutter app (web/mobile) can call the API
+gem "rack-cors"
+
+# Pagination
+gem "kaminari"
+
+group :development, :test do
+  gem "debug", platforms: %i[mri windows]
+  gem "rspec-rails", "~> 6.1"
+  gem "factory_bot_rails"
+  gem "faker"
+end
+
+group :development do
+  gem "listen", "~> 3.3"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 6.0"
+  gem "rack-test"
+end

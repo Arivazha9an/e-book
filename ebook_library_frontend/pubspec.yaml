@@ -1,0 +1,56 @@
+name: ebook_library_frontend
+description: Digital Ebook Library — Flutter frontend (BLoC + Clean Architecture)
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  flutter_bloc: ^8.1.5
+  equatable: ^2.0.5
+  stream_transform: ^2.1.0
+
+  # Networking
+  dio: ^5.4.3
+  connectivity_plus: ^6.0.3
+
+  # Dependency injection
+  get_it: ^7.7.0
+
+  # File picking / downloads / opening files
+  file_picker: ^8.0.3
+  path_provider: ^2.1.3
+  open_filex: ^4.4.0
+  permission_handler: ^11.3.1
+
+  # PDF reading
+  syncfusion_flutter_pdfviewer: ^31.1.20
+
+  # UI polish
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  intl: ^0.19.0
+
+  cupertino_icons: ^1.0.6
+  flutter_tts: ^4.2.5
+  syncfusion_flutter_pdf: ^31.2.18
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+  # Testing
+  bloc_test: ^9.1.7
+  mocktail: ^1.0.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
