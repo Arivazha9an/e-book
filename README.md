@@ -30,7 +30,7 @@ A full-stack digital ebook library — **Ruby on Rails API** backend + **Flutter
   Alternatively, host the file in a `docs/demo/` folder in this repo and reference it:
 -->
 
-[[https://github.com/assets/WhatsApp Video 2026-07-03 at 6.37.01 PM.mp4](https://github.com/Arivazha9an/e-book/blob/main/assets/WhatsApp%20Video%202026-07-03%20at%206.37.01%20PM.mp4)](https://github.com/Arivazha9an/e-book/blob/main/assets/WhatsAppVideo2026-07-03at6.37.01PM-ezgif.com-video-to-gif-converter.gif)
+[(https://github.com/Arivazha9an/e-book/blob/main/assets/WhatsApp%20Video%202026-07-03%20at%206.37.01%20PM.mp4)](https://github.com/Arivazha9an/e-book/blob/main/assets/WhatsAppVideo2026-07-03at6.37.01PM-ezgif.com-video-to-gif-converter.gif)
 
 <!-- Or, if using a GIF instead of a video: -->
 <!-- ![App demo](docs/demo/app-demo.gif) -->
